@@ -1,0 +1,224 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "NacosConfig": {
+      "type": "object",
+      "properties": {
+        "Listeners": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Optional": {
+                "type": "boolean",
+                "default": true
+              },
+              "DataId": {
+                "type": "string"
+              },
+              "Group": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Optional",
+              "DataId",
+              "Group"
+            ]
+          },
+          "title": "The configuration listeners",
+          "description": "The configuration listeners"
+        },
+        "Namespace": {
+          "type": "string",
+          "description": "命名空间ID",
+          "title": "命名空间ID"
+        },
+        "ServerAddresses": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "title": "服务器数组",
+            "description": "例如：http://10.1.12.123:8848,https://10.1.12.124:8848"
+          },
+          "title": "Nacos服务器",
+          "description": "Nacos服务器"
+        },
+        "UserName": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "AccessKey": {
+          "type": "string"
+        },
+        "SecretKey": {
+          "type": "string"
+        },
+        "EndPoint": {
+          "type": "string",
+          "title": "EndPoint",
+          "description": "EndPoint"
+        },
+        "ConfigFilterAssemblies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Specify the assemblies that contains the impl of IConfigFilter.",
+          "description": "Specify the assemblies that contains the impl of IConfigFilter."
+        },
+        "ConfigFilterExtInfo": {
+          "type": "string",
+          "title": "Specify some extension info of IConfigFilter.",
+          "description": "Specify some extension info of IConfigFilter."
+        }
+      },
+      "title": "配置中心",
+      "description": "配置中心",
+      "required": [
+        "Namespace",
+        "ServerAddresses",
+        "Listeners"
+      ]
+    },
+    "nacos": {
+      "type": "object",
+      "properties": {
+        "EndPoint": {
+          "type": "string"
+        },
+        "ServerAddresses": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "title": "服务器数组",
+            "description": "例如：http://10.1.12.123:8848,https://10.1.12.124:8848"
+          },
+          "title": "Nacos服务器",
+          "description": "Nacos服务器"
+        },
+        "DefaultTimeOut": {
+          "type": "number",
+          "default": "15000"
+        },
+        "Namespace": {
+          "type": "string",
+          "title": "Namespace ID",
+          "description": "Namespace ID"
+        },
+        "ListenInterval": {
+          "type": "number",
+          "default": "1000"
+        },
+        "ServiceName": {
+          "type": "string",
+          "title": "注册的服务名称",
+          "description": "注册的服务名称"
+        },
+        "GroupName": {
+          "type": "string",
+          "title": "注册的分组名称",
+          "description": "注册的分组名称"
+        },
+        "ClusterName": {
+          "type": "string",
+          "title": "ClusterName",
+          "description": "ClusterName",
+          "default": "DEFAULT"
+        },
+        "Ip": {
+          "type": "string"
+        },
+        "PreferredNetworks": {
+          "type": "string",
+          "title": "select an IP that matches the prefix as the service registration IP",
+          "description": "select an IP that matches the prefix as the service registration IP"
+        },
+        "Port": {
+          "type": "number",
+          "default": "0"
+        },
+        "Weight": {
+          "type": "number",
+          "title": "权重",
+          "description": "权重",
+          "default": "100"
+        },
+        "RegisterEnabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "InstanceEnabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "Ephemeral": {
+          "type": "boolean",
+          "default": true
+        },
+        "Secure": {
+          "type": "boolean",
+          "default": false
+        },
+        "AccessKey": {
+          "type": "string"
+        },
+        "SecretKey": {
+          "type": "string"
+        },
+        "UserName": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "ConfigUseRpc": {
+          "type": "boolean"
+        },
+        "NamingUseRpc": {
+          "type": "boolean"
+        },
+        "NamingLoadCacheAtStart": {
+          "type": "string"
+        },
+        "LBStrategy": {
+          "type": "string",
+          "default": "WeightRandom",
+          "enum": [
+            "WeightRandom",
+            "WeightRoundRobin"
+          ]
+        },
+        "Metadata": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      "title": "服务中心",
+      "description": "服务中心",
+      "required": [
+        "ServerAddresses",
+        "ServiceName",
+        "GroupName",
+        "ClusterName",
+        "RegisterEnabled",
+        "InstanceEnabled",
+        "Namespace",
+        "ListenInterval",
+        "DefaultTimeOut",
+        "Port",
+        "Weight",
+        "Ephemeral",
+        "Secure",
+        "ConfigUseRpc",
+        "NamingUseRpc",
+        "LBStrategy"
+      ]
+    }
+  },
+  "title": " nacos-sdk-csharp",
+  "description": " nacos-sdk-csharp配置中心和服务中心"
+}
